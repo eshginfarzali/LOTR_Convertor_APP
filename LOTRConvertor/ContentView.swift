@@ -93,9 +93,6 @@ struct ContentView: View {
                                         .font(.largeTitle)
                                         .foregroundStyle(.white)
                 }
-                //bele de ola biler yuxarida da
-//                .font(.largeTitle)
-//                .foregroundStyle(.white)
 
                
             }
