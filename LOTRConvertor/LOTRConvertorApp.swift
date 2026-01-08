@@ -2,7 +2,7 @@
 //  LOTRConvertorApp.swift
 //  LOTRConvertor
 //
-//  Created by OBA Market on 25.12.25.
+//  Created by Eshgin Farzali  on 25.12.25.
 //
 
 import SwiftUI

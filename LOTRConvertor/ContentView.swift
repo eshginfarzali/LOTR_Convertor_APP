@@ -2,12 +2,17 @@
 //  ContentView.swift
 //  LOTRConvertor
 //
-//  Created by OBA Market on 25.12.25.
+//  Created by Eshgin Farzali on 25.12.25.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @State var showExchangeInfo: Bool = false
+    @State var leftAmount = ""
+    @State var rightAmount = ""
+    
+    
     var body: some View {
         ZStack{
             //Background image
@@ -21,8 +26,6 @@ struct ContentView: View {
                     .scaledToFit()
                     .frame(height: 200)
                     .frame(width: 200)
-          
-                
                 // Currency exchange text
                 Text("Currency Exchange")
                     .font(.largeTitle)
@@ -46,10 +49,11 @@ struct ContentView: View {
                                 .font(.headline)
                                 .foregroundStyle(.white)
                         }
-                        
-                        
+                        .padding(.bottom, -5)
+                                                
                         //Text field
-                        Text("Text field")
+                        TextField("Amount", text: $leftAmount)
+                            .textFieldStyle(.roundedBorder)
                     }
                     
                     // Equal sign
@@ -66,7 +70,6 @@ struct ContentView: View {
                             Text("Gold Piece")
                                 .font(.headline)
                                 .foregroundStyle(.white)
-
                             
                             // Currency image
                             Image(.goldpiece)
@@ -74,24 +77,35 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .frame(height: 33)
                                 .frame(width: 33)
-                            
-                            
                         }
+                        .padding(.bottom, -5)
                         
                         //Text field
-                        Text("Text field")
+                        TextField("Amount", text: $rightAmount)
+                            .textFieldStyle(.roundedBorder)
+                            .multilineTextAlignment(.trailing)
+                        
                     }
 
                 }
+                .padding()
+                .background(.black.opacity(0.5))
+                .clipShape(.capsule)
                 Spacer()
                 
                 //Info button
-                Button{
-                    
-                } label: {
-                                    Image(systemName: "info.circle.fill")
-                                        .font(.largeTitle)
-                                        .foregroundStyle(.white)
+                HStack {
+                    Spacer()
+                    Button{
+                        showExchangeInfo.toggle()
+                        print("showExchangeInfo value: \(showExchangeInfo)")
+                        
+                    } label: {
+                        Image(systemName: "info.circle.fill")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.trailing)
                 }
 
                
