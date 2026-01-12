@@ -19,6 +19,9 @@ struct ContentView: View {
             Image(.background)
                 .resizable()
                 .ignoresSafeArea()
+//                .sheet(isPresented: $showExchangeInfo){
+//                    ExchangeInfoView()
+//                }
             VStack{
                 //Prancing pony image
                 Image(.prancingpony)
@@ -93,6 +96,7 @@ struct ContentView: View {
                 .clipShape(.capsule)
                 Spacer()
                 
+                
                 //Info button
                 HStack {
                     Spacer()
@@ -106,6 +110,9 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                     }
                     .padding(.trailing)
+                    .sheet(isPresented: $showExchangeInfo){
+                        ExchangeInfoView()
+                    }
                 }
 
                

@@ -2,12 +2,14 @@
 //  ExchangeInfoView.swift
 //  LOTRConvertor
 //
-//  Created by OBA Market on 08.01.26.
+//  Created by by Eshgin Farzali on 08.01.26.
 //
 
 import SwiftUI
 
 struct ExchangeInfoView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack{
             //Background parchment image
@@ -27,30 +29,21 @@ struct ExchangeInfoView: View {
                     .padding()
                 
                 //Exchange rates
-                HStack{
-                    //left
-                    Image(.goldpiece)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 33)
 
-                    //exchange text
-                    Text("1 Gold Piece = 4 Gold Pennies")
-                    //right
-                    Image(.goldpenny)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 33)
-                }
+                Exchangerate(leftImage: .goldpiece, text: "1 Gold Piece = 4 Gold Pennies", rightImage: .goldpenny)
+                Exchangerate(leftImage: .goldpenny, text: "1 Gold Penny = 4 Silver Pieces", rightImage: .silverpiece)
+                Exchangerate(leftImage: .silverpiece, text:"1 Silver Pieces = 4 Silver Pennies" , rightImage: .silverpenny)
+                Exchangerate(leftImage: .silverpenny, text:"1 Silver Penny = 100 Copper Pennies" , rightImage: .copperpenny)
                 //Done
                 Button("Done"){
-                    
+                   dismiss()
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.brown.mix(with: .black, by: 0.2))
                 .font(.largeTitle)
                 .padding()
                 .foregroundStyle(.white)
+                
                 
             }
             .foregroundStyle(.black)
