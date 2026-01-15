@@ -24,10 +24,14 @@ struct SelectCurrency: View {
                     .fontWeight(.bold)
                 
                 //Currency icons
-
-                    CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper penny")
+                    
        
-                
+                LazyVGrid(columns: [GridItem(), GridItem(),  GridItem(), ]){
+                    ForEach(0..<5){ loop in
+                        CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper penny \(loop)")
+                        
+                    }
+                }
                 //Text
                 Text("Select the currency you would like to covert to:")
                     .fontWeight(.bold)
